@@ -1,16 +1,46 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/eFood.svg"  />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>EFood</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+import pluginJs from '@eslint/js'
+import prettierPlugin from 'eslint-plugin-prettier'
+import pluginReact from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
+  { languageOptions: { globals: globals.browser } },
+
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+
+  {
+    plugins: {
+      'react-hooks': reactHooks,
+      prettier: prettierPlugin
+    },
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      'prettier/prettier': [
+        'error',
+        {
+          singleQuote: true,
+          trailingComma: 'none',
+          semi: false,
+          printWidth: 150,
+          arrowParens: 'avoid'
+        }
+      ]
+    }
+  },
+
+  {
+    settings: {
+      react: { version: 'detect' }
+    }
+  }
+]
