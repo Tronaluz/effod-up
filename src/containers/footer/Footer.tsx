@@ -1,5 +1,10 @@
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
-import { FooterContainer, FooterLogo, FooterText, SocialLinks, SocialLinksItens } from './FooterStyles'
+import { FooterContainer, FooterCopy, FooterLogo, FooterText, SocialLinks, SocialLinksItens } from './FooterStyles'
+
+const getCurrentYear = () => {
+  const date = new Date()
+  return date.getFullYear()
+}
 
 const Footer = () => {
   return (
@@ -20,6 +25,7 @@ const Footer = () => {
         A efood é uma plataforma para divulgação de estabelecimentos, a responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
       </FooterText>
+      <FooterCopy>&copy; {getCurrentYear()} RNT Projects. All rights reserved.</FooterCopy>
     </FooterContainer>
   )
 }

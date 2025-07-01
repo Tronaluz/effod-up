@@ -49,7 +49,7 @@ export const FooterLogo = styled.img`
 `
 
 export const FooterText = styled.p`
-  font-size: 10px;
+  font-size: 12px;
   color: ${theme.colors.primaryColor};
   text-align: center;
 `

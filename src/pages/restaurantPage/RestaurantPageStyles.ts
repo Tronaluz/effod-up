@@ -6,7 +6,6 @@ import { media } from '../../style/media'
 import { theme } from '../../style/theme'
 
 export const RestaurantPageContainer = styled.div`
-  padding: 50px 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -57,7 +56,8 @@ export const RestaurantPageContent = styled.div`
 export const RestaurantPageCard = styled(Card)`
   background-color: ${theme.colors.primaryColor};
   color: ${theme.colors.textColor};
-  width: 100%;
+  width: 320px;
+  height: 340px;
 
   ${ButtonContainer} {
     width: 100%;
@@ -68,17 +68,20 @@ export const RestaurantPageCard = styled(Card)`
   ${CardImage} {
     width: 100%;
     height: 160px;
-    padding: 10px;
+    padding: 8px;
   }
 
   ${CardTitle} {
     width: 100%;
     font-size: 16px;
+    font-weight: 900;
     color: ${theme.colors.secondaryColor};
   }
 
   ${CardDescription} {
     font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
     color: ${theme.colors.secondaryColor};
   }
 

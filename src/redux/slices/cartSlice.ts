@@ -48,9 +48,15 @@ export const cartSlice = createSlice({
           state.items = state.items.filter(item => item.foodId !== action.payload)
         }
       }
+    },
+    incrementItemQuantity: (state, action: PayloadAction<string>) => {
+      const existingItem = state.items.find(item => item.foodId === action.payload)
+      if (existingItem) {
+        existingItem.quantity += 1
+      }
     }
   }
 })
 
-export const { addToCart, removeFromCart, decrementItemQuantity } = cartSlice.actions
+export const { addToCart, removeFromCart, decrementItemQuantity, incrementItemQuantity } = cartSlice.actions
 export default cartSlice.reducer
